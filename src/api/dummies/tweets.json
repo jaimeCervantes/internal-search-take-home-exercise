@@ -1,0 +1,27 @@
+{
+    "tweets": [
+      {
+        "user": "@yahoo",
+        "message": "We're hiring in Seattle! Please contact scooper@yahoo.com",
+        "timestamp": "2019-01-21",
+        "matching_terms": [
+          "yahoo",
+          "sheldon",
+          "cooper",
+          "hiring",
+          "seattle",
+          "boston"
+        ]
+      },
+      {
+        "user": "@yahoo",
+        "message": "We're no longer hiring in San Francisco! :*(",
+        "timestamp": "2019-02-25",
+        "matching_terms": [
+          "yahoo",
+          "san francisco",
+          "hiring"
+        ]
+      }
+    ]
+  }

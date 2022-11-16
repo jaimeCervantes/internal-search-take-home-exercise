@@ -1,0 +1,76 @@
+{
+    "slacks": [
+      {
+        "id": "12345",
+        "channel": "yahoo",
+        "author": "alice",
+        "message": "Who's up for lunch right now?",
+        "timestamp": "2019-02-26 11:00:00",
+        "matching_terms": [
+          "alice",
+          "yahoo",
+          "lunch"
+        ]
+      },
+      {
+        "id": "12346",
+        "channel": "yahoo",
+        "author": "bob",
+        "message": "I am up for lunch!",
+        "timestamp": "2019-02-26 11:00:01",
+        "matching_terms": [
+          "bob",
+          "yahoo",
+          "lunch"
+        ]
+      },
+      {
+        "id": "12347",
+        "channel": "yahoo",
+        "author": "erica",
+        "message": "Me too @alice!",
+        "timestamp": "2019-02-26 11:00:02",
+        "matching_terms": [
+          "erica",
+          "yahoo",
+          "alice"
+        ]
+      },
+      {
+        "id": "22345",
+        "channel": "yahoo-support",
+        "author": "alice",
+        "message": "Did any of you meet with ABC folks last week?",
+        "timestamp": "2019-02-26 12:00:00",
+        "matching_terms": [
+          "alice",
+          "yahoo-support",
+          "yahoo"
+        ]
+      },
+      {
+        "id": "22346",
+        "channel": "yahoo-support",
+        "author": "dave",
+        "message": "Yeah, I met with Bob there",
+        "timestamp": "2019-02-26 12:00:01",
+        "matching_terms": [
+          "dave",
+          "yahoo-support",
+          "bob"
+        ]
+      },
+      {
+        "id": "22347",
+        "channel": "yahoo-support",
+        "author": "dave",
+        "message": "I think John from ABC was in that meeting too",
+        "timestamp": "2019-02-26 12:00:02",
+        "matching_terms": [
+          "dave",
+          "john",
+          "yahoo"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,68 @@
+{
+    "gdrive": [
+      {
+        "id": "12345",
+        "path": "/taxes/2016/w2-yahoo.pdf",
+        "title": "\"2016 W2\"",
+        "shared_with": [
+          "jane@accountants.com",
+          "spouse@family.org"
+        ],
+        "matching_terms": [
+          "tax",
+          "w2",
+          "alice"
+        ],
+        "created": "2016-02-01"
+      },
+      {
+        "id": "34567",
+        "path": "/work/customers/yahoo/invoice.docx",
+        "title": "\"Yahoo: Invoice\"",
+        "shared_with": [
+          "yahoo-accounts@yahoo.com"
+        ],
+        "matching_terms": [
+          "yahoo",
+          "invoice"
+        ],
+        "created": "2019-02-01"
+      },
+      {
+        "id": "56789",
+        "path": "/purchases/2016/fridge.pdf",
+        "title": "\"Best Buy: Invoice\"",
+        "matching_terms": [
+          "invoice"
+        ],
+        "created": "2019-02-01"
+      },
+      {
+        "id": "3456789",
+        "path": "/work/customers/yahoo/proposal.docx",
+        "title": "\"Yahoo: Draft MoU\"",
+        "shared_with": [
+          "yahoo-accounts@yahoo.com"
+        ],
+        "matching_terms": [
+          "yahoo",
+          "proposal",
+          "mou"
+        ],
+        "created": "2019-01-19"
+      },
+      {
+        "id": "3556789",
+        "path": "/work/customers/yahoo/meeting-notes.docx",
+        "title": "\"Yahoo: Meeting Notes\"",
+        "shared_with": [
+          "yahoo-accounts@yahoo.com"
+        ],
+        "matching_terms": [
+          "yahoo",
+          "meeting notes"
+        ],
+        "created": "2019-02-04"
+      }
+    ]
+  }

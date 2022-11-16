@@ -1,0 +1,39 @@
+{
+    "images": [
+      {
+        "id": "12345",
+        "image": "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGNhbXB1c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "created": "12-3-2018",
+        "description": "Yahoo campus",
+        "matching_terms": ["yahoo", "sheldon", "cooper"]
+      },
+      {
+        "id": "12346",
+        "image": "https://images.unsplash.com/photo-1559135197-8a45ea74d367?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhbXB1c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "created": "12-15-2018",
+        "description": "Yahoo campus",
+        "matching_terms": ["yahoo"]
+      },
+      {
+        "id": "12347",
+        "image": "https://images.unsplash.com/photo-1651444700243-c853a68ddbb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FtcHVzJTIwdW5hbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "created": "12-21-2018",
+        "description": "Yahoo campus",
+        "matching_terms": ["yahoo", "sheldon", "cooper"]
+      },
+      {
+        "id": "12348",
+        "image": "https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FtcHVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "created": "1-14-2019",
+        "description": "Yahoo campus",
+        "matching_terms": ["yahoo", "erica"]
+      },
+      {
+        "id": "12349",
+        "image": "https://images.unsplash.com/photo-1604850192879-6057e2f74c27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGNhbXB1c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "created": "2-1-2019",
+        "description": "Yahoo campus",
+        "matching_terms": ["yahoo"]
+      }
+    ]
+}
