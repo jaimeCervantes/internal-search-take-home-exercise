@@ -1,28 +1,21 @@
 import SearchField from "./SearchResults/SearchField";
 import GridResults from "./SearchResults/GridResults";
 import { ChangeEvent, useState } from 'react';
-import { fetchSearchResults } from "./api";
-
-import type { DataItem } from './common.d';
-
-type Results = Array<DataItem> | [];
+import { useLoadResults } from './SearchResults/hooks';
 
 function App() {
-  const [results, setResults] = useState<Results>([]);
-  
-  async function onSearch(e: ChangeEvent<HTMLInputElement>) {
-    const searchTerm = e.target.value;
+  const [query, setQuery] = useState('');
+  const [isTyping, isLoading, results] = useLoadResults(query);
 
-    if (searchTerm.trim()) {
-      const result = await fetchSearchResults(searchTerm.split(/[\s]+/)) as Results;
-      setResults(result);
-    }
+  function onSearch(e: ChangeEvent<HTMLInputElement>) {
+    setQuery(e.target.value.trim());
   }
   
-
   return (
     <div className="App">
       <SearchField onSearchHandler={onSearch}/>
+      {isTyping && 'Typing...' }
+      {isLoading && 'Loading...'}
       {results.length ? <GridResults items={results} /> : <p>No results</p>}
     </div>
   )
