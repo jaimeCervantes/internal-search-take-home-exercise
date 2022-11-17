@@ -4,11 +4,7 @@ import images from './dummies/images.json';
 import slacks from './dummies/slacks.json';
 import tweets from './dummies/tweets.json';
 
-import type { DataItem } from '../common.d';
-
-type Data = {
-  [index: string]: Array<DataItem>
-}
+import type { Data } from '../common.d';
 
 const data: Data = {
   ...contacts,
@@ -24,8 +20,8 @@ export function fetchSearchResults(searchTerms: Array<string>) {
   });
 }
 
-function selectData(searchTerms: Array<string>): Array<DataItem> {
-  let results: Array<DataItem> = [];
+function selectData(searchTerms: Array<string>): Data {
+  let results: Data = {};
   const keys: string[] = Object.keys(data);
 
   keys.forEach((item: string) => {
@@ -39,7 +35,7 @@ function selectData(searchTerms: Array<string>): Array<DataItem> {
       return false;
     });
 
-    results = [...results, ...matcheds];
+    results[item] = matcheds;
   });
 
   return results;

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchSearchResults } from "../api";
-import type { DataItem } from '../common.d';
+import type { Data } from '../common.d';
 
-type Results = Array<DataItem> | [];
-
-export function useLoadResults(query: string): [boolean, boolean, Results] {
-  const [results, setResults] = useState<Results>([]);
+export function useLoadResults(query: string): [boolean, boolean, Data] {
+  const [results, setResults] = useState<Data>({});
   const [isChanged, setIsChanged] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isWaiting, setIsWaiting] = useDelay(query, 1000);
