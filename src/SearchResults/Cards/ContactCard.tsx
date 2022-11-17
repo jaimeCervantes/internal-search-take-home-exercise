@@ -1,14 +1,24 @@
+import withCard from './Card';
 import cardStyles from './Card.module.scss';
 
-export default function ContactCard(props) {
+export default withCard(Contact, 'search-result-contact');
+
+type ContactProps = {
+  name: string;
+  company: string;
+  emails: Array<string>;
+  phones: Array<string>;
+}
+
+function Contact(props: ContactProps) {
   return (
-    <article className={cardStyles.card} data-cy="search-result-contact">
+    <>
       <h2 className={cardStyles.title}>{props.name}</h2>
       <p>{props.company}</p>
       <h4>emails:</h4>
-      {props.emails?.map((email: string) => (<p>{email}</p>))}
+      {props.emails?.map((email: string) => (<p key={email}>{email}</p>))}
       <h4>Phones:</h4>
-      {props.phones?.map((phone: string) => (<p>{phone}</p>))}
-    </article>
-  );
+      {props.phones?.map((phone: string) => (<p key={phone}>{phone}</p>))}
+    </>
+  )
 }

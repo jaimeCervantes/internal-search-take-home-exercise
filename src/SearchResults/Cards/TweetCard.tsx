@@ -1,8 +1,13 @@
-import cardStyles from './Card.module.scss';
+import withCard from './Card';
+import styles from './Card.module.scss';
 
-export default function TweetCard(props) {
-  return <div className={cardStyles.card} data-cy="search-result-tweet">
-    <h2 className={cardStyles.title}>{props.user}</h2>
-    <p>{props.message}</p>
-  </div>
+export default withCard(Tweet, 'search-result-tweet');
+
+function Tweet(props) {
+  return (
+    <>
+      <h2 className={styles.title}>{props.user}</h2>
+      <p>{props.message}</p>
+    </>
+  );
 }
