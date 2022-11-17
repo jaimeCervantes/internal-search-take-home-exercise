@@ -15,9 +15,7 @@ const data: Data = {
 };
 
 export function fetchSearchResults(searchTerms: Array<string>) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(selectData(searchTerms)), 1000)
-  });
+  return new Promise(resolve => setTimeout(() => resolve(selectData(searchTerms)), 1000));
 }
 
 function selectData(searchTerms: Array<string>): Data {

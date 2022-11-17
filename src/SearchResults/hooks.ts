@@ -9,19 +9,19 @@ export function useLoadResults(query: string): [boolean, boolean, Data] {
   const [isWaiting, setIsWaiting] = useDelay(query, 1000);
 
   useEffect(() => {
-    if(query) {
+    if (query) {
       setIsWaiting(true);
       setIsChanged(true);
     }
   }, [query]);
 
   useEffect(() => {
-    if(isWaiting === false && isChanged === true) {
+    if(isWaiting === false && isChanged === true && isLoading === false) {
       (async () => {
         setIsLoading(true);
-        const result = await fetchSearchResults(query.split(/[\s]+/)) as Results;
-        setResults(result);
+        const result = await fetchSearchResults(query.split(/[\s]+/)) as Data;
         setIsLoading(false);
+        setResults(result);
       })();
     }
   }, [isWaiting]);
