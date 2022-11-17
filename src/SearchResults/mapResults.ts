@@ -7,7 +7,10 @@ export default function mapResults(data: Data): MappedResults {
   const keys = Object.keys(data);
 
   keys.forEach((type: string) => {
-    const mapped = data[type].map((item: DataItem) => ({ ...item, type }))
+    const mapped = data[type].map((item: DataItem) => {
+      const id = `${item.id || item.timestamp}${type}`;
+      return { ...item, id, type,  }
+    })
     results = [...results, ...mapped];
   });
 

@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import InteractionsContext from './SearchResultInteractionsContext';
 import styles from './GridResults.module.scss';
 import ContactCard from './Cards/ContactCard';
 import GoogleDriveCard from './Cards/GoogleDriveCard';
@@ -22,13 +24,27 @@ const componentNames: CompNames = {
 }
 
 export default function GridResults({ items }: GridResultsProps) {
+  const [state, dispatch] = useContext(InteractionsContext);
+  console.log(state);
+
+  function updatePin(id: string, isPinned: boolean) {
+    dispatch({
+      type: 'UPDATE_PIN',
+      payload: {
+        id,
+        isPinned
+      }
+    })
+  }
+
   return (
     <section data-cy="search-results" className={styles.grid}>
       {
         items.map((item) => {
+          const props = {...item, ...state[item.id] };
           const Component = componentNames[item.type];
 
-          return <Component key={`${item.id || item.timestamp}${item.type}`} {...item} />
+          return <Component key={item.id} updatePin={updatePin} {...props } />
         })
       }
     </section>

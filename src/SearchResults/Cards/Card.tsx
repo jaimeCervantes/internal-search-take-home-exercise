@@ -1,11 +1,19 @@
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
+type CardProps = {
+  id: string;
+  isPinned?: Boolean;
+  updatePin: Function
+}
+
 export default function withCard(Child: Function, type: string) {
-  return function (props: { pinned?: Boolean }) {
-    const [isPinned, setIsPinned] = useState(() => Boolean(props.pinned));
+  
+  return function CardWrapper(props: CardProps ) {
+    const [isPinned, setIsPinned] = useState(() => Boolean(props.isPinned));
 
     function togglePin() {
+      props.updatePin(props.id, !isPinned);
       setIsPinned(!isPinned);
     }
 

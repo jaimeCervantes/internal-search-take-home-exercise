@@ -1,5 +1,6 @@
 export type DataItem = {
   id?: string,
+  timestamp?: string,
   matching_terms: Array<string>
 }
 
