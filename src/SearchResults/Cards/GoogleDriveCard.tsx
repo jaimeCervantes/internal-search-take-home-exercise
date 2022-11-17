@@ -6,7 +6,7 @@ export default function GoogleDriveCard(props) {
       <h2 className={cardStyles.title}>{props.title}</h2>
       <p>{props.path}</p>
       <h4>Shared with:</h4>
-      {props.shared_with?.map((item: string) => (<p>{item}</p>))}
+      {props.shared_with?.map((item: string) => (<p key={item}>{item}</p>))}
     </article>
   );
 }
