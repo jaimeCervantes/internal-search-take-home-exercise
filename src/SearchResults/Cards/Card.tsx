@@ -1,7 +1,7 @@
 import styles from './Card.module.scss';
 import { useState } from 'react';
 
-type CardProps = {
+export type CardProps = {
   id: string;
   isPinned?: Boolean;
   updatePin: Function
@@ -13,7 +13,7 @@ export default function withCard(Child: Function, type: string) {
     const [isPinned, setIsPinned] = useState(() => Boolean(props.isPinned));
 
     function togglePin() {
-      props.updatePin(props.id, !isPinned);
+      props?.updatePin(props, !isPinned);
       setIsPinned(!isPinned);
     }
 

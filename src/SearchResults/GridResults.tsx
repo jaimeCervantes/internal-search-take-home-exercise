@@ -24,16 +24,15 @@ const componentNames: CompNames = {
 }
 
 export default function GridResults({ items }: GridResultsProps) {
-  const [state, dispatch] = useContext(InteractionsContext);
-  console.log(state);
+  const [, dispatch] = useContext(InteractionsContext);
 
-  function updatePin(id: string, isPinned: boolean) {
+  function updatePin(props: any, isPinned: boolean) {
+    const payload = { ...props, isPinned };
+    delete payload.updatePin;
+
     dispatch({
       type: 'UPDATE_PIN',
-      payload: {
-        id,
-        isPinned
-      }
+      payload
     })
   }
 
@@ -41,10 +40,9 @@ export default function GridResults({ items }: GridResultsProps) {
     <section data-cy="search-results" className={styles.grid}>
       {
         items.map((item) => {
-          const props = {...item, ...state[item.id] };
           const Component = componentNames[item.type];
 
-          return <Component key={item.id} updatePin={updatePin} {...props } />
+          return <Component key={item.id} updatePin={updatePin} {...item } />
         })
       }
     </section>

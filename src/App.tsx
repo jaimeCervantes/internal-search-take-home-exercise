@@ -8,22 +8,22 @@ import InteractionContext from './SearchResults/SearchResultInteractionsContext'
 import reduceSearchResultInteractions from "./SearchResults/reduceSearchResultInteractions";
 
 function App() {
-  const store = useReducer(reduceSearchResultInteractions, {});
+  const [state, dispatch] = useReducer(reduceSearchResultInteractions, {});
   const [query, setQuery] = useState('');
-  const [isTyping, isLoading, results] = useLoadResults(query);
-  const mappedResults = mapResults(results);
+  const [, isLoading, results] = useLoadResults(query);
+  const mappedResults = mapResults(results, state);
 
   function onSearch(e: ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value.trim());
   }
   
   return (
-    <InteractionContext.Provider value={store}>
+    <InteractionContext.Provider value={[state, dispatch]}>
       <div className="App">
         <SearchField onSearchHandler={onSearch}/>
-        {isTyping && 'Typing...' }
-        {isLoading && 'Loading...'}
-        {mappedResults.length ? <GridResults items={mappedResults} /> : <p>No results</p>}
+        {isLoading && <h2 style={{ marginBottom: '1rem' }}>Loading...</h2>}
+        {mappedResults.length ? <GridResults items={mappedResults} /> : null}
+        {!isLoading && !mappedResults.length ? <h3>No results</h3>: null}
       </div>
     </InteractionContext.Provider>
   )
