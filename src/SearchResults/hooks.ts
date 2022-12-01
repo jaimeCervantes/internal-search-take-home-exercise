@@ -29,7 +29,7 @@ export function useLoadResults(query: string): [boolean, boolean, Data] {
   return [isWaiting, isLoading, results]
 }
 
-function useDelay(trigger: string, waitTime: number): [boolean, Function] {
+export function useDelay(trigger: string, waitTime: number): [boolean, Function] {
   const [isWating, setIsWaiting] = useState(false);
 
   useEffect(() => {

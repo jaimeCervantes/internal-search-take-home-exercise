@@ -1,4 +1,4 @@
-import type { Data, DataItem } from '../common.d';
+import type { Data, DataItem } from '../common';
 
 type MappedResults = Array<DataItem> | [];
 

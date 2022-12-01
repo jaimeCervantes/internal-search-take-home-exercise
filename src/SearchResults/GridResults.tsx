@@ -1,14 +1,15 @@
-import { useContext } from 'react';
-import InteractionsContext from './SearchResultInteractionsContext';
 import styles from './GridResults.module.scss';
 import ContactCard from './Cards/ContactCard';
 import GoogleDriveCard from './Cards/GoogleDriveCard';
 import ImageCard from './Cards/ImageCard';
 import SlackCard from './Cards/SlackCard';
 import TweetCard from './Cards/TweetCard';
+import { useSearchResultInteractionsContext } from './SearchResultInteractionsContext';
+
 
 type GridResultsProps = {
-  items: Array<any>
+  asyncResource: { read: Function };
+  mapper: Function
 }
 
 type CompNames = {
@@ -23,8 +24,10 @@ const componentNames: CompNames = {
   tweets: TweetCard
 }
 
-export default function GridResults({ items }: GridResultsProps) {
-  const [, dispatch] = useContext(InteractionsContext);
+export default function GridResults({ asyncResource, mapper }: GridResultsProps) {
+  const [pinnedResults, dispatch] = useSearchResultInteractionsContext();
+  const items = asyncResource.read();
+  const mappedItems = mapper(items, pinnedResults);
 
   function updatePin(props: any, isPinned: boolean) {
     const payload = { ...props, isPinned };
@@ -36,6 +39,17 @@ export default function GridResults({ items }: GridResultsProps) {
     })
   }
 
+  return (
+    <>
+      {mappedItems.length ? <GridResultList items={mappedItems} updatePin={updatePin} /> : null}
+        
+      {!mappedItems.length ? <h3>No results</h3>: null}
+    </>
+  );
+}
+
+
+function GridResultList({ items, updatePin }) {
   return (
     <section data-cy="search-results" className={styles.grid}>
       {
